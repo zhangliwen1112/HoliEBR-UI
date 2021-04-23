@@ -1,0 +1,14 @@
+[2021-01-15 16:11:15,588] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_workpack_mode_001
+[2021-01-15 16:18:38,609] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_001
+[2021-01-15 16:18:40,951] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_002
+[2021-01-15 16:18:41,034] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_003
+[2021-01-15 16:18:42,877] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_004
+[2021-01-15 16:18:44,697] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_005
+[2021-01-15 16:19:43,183] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_001
+[2021-01-15 16:19:45,470] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_003
+[2021-01-15 16:19:46,265] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_004
+[2021-01-15 16:19:48,070] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_005
+[2021-01-15 16:27:19,906] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_001
+[2021-01-15 16:27:22,207] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_003
+[2021-01-15 16:48:27,347] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_001
+[2021-01-15 16:48:29,662] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_MI_Execution_003
