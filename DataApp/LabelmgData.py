@@ -5,7 +5,7 @@ Created on 2020/11/16
 @author: lianxiujuan
 @desc：标签管理数据
 """
-
+# -------------------------------------------标签-区域-正常测试数据-------------------------------------------
 areacode = "area"
 areaname = "区域"
 areadesc = "区域描述"
@@ -89,3 +89,32 @@ devicezpl = "设备zpl"
 editname = "_编辑名称"
 editdesc = "_编辑描述"
 editzpl = "_编辑zpl"
+# ---------------------------------------------------------------------------------------------------------
+# -------------------------------------------标签-异常测试数据------------------------------------------------
+code1 = "code01"
+name1 = "name01"
+desc1 = "desc01"
+zpl1 = "zpl01"
+code2 = "code02"
+name2 = "name02"
+desc2 = "desc02"
+zpl2 = "zpl02"
+
+# 编码异常
+code_ab1 = ''  # 为空
+code_ab2 = '#'  # 有特殊字符
+code_ab3 = code1 # 重复
+code_abnormal_01 = [(code_ab1,name2,desc2,zpl2)]
+code_abnormal_02 = [(code_ab2,name2,desc2,zpl2)]
+code_abnormal_03 = [(code_ab3,name2,desc2,zpl2)]
+
+
+# 名称异常
+name_ab1 = ''  # 为空
+name_ab2 = name1
+name_abnormal_01 = [(code2,name_ab1,desc2,zpl2)]
+name_abnormal_02 = [(code2,name_ab2,desc2,zpl2)]
+# ZPL 异常
+zpl_ab1 = ''  # 为空
+zpl_abnormal = [(code2,name2,desc2,zpl_ab1)]
+# ---------------------------------------------------------------------------------------------------------

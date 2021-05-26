@@ -12,13 +12,6 @@ from src.public.common.Search_Item import *
 
 
 class Test_Organize:
-    # 登陆环境
-    # def setup_class(self):
-    #     admin_login(admin_username, admin_password)
-    #     sleep(2)
-
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 进入组织机构页面
     def test_login_organization(self):
@@ -51,16 +44,13 @@ class Test_Organize:
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         organize_refresh_orgcom()
 
-    # 新增用户
-    def test_org_user_add(self):
-        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        organize_user_add(users, user_code, tel, status, male)
-        sleep(1)
-        assert new_page_source(users)
 
     # 修改用户
     def test_org_user_edit(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        sleep(1)
+        organize_user_add(users, user_code, tel, status, male)
+        sleep(1)
         organize_user_edit(edit_users, edit_tel, edit_status)
         sleep(1)
         assert new_page_source(edit_users)

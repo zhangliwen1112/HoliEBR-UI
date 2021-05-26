@@ -13,12 +13,6 @@ from src.public.Logger import Log
 from src.public.common.Search_Item import *
 
 class Test_Location_Manage:
-    # 登陆环境
-    # def setup_class(self):
-    #     admin_login(admin_username, admin_password)
-    #
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 进入工厂模型-位置管理页面
     def test_location_manage(self):
@@ -28,7 +22,7 @@ class Test_Location_Manage:
         sleep(1)
 
     # 新增位置
-    @pytest.mark.parametrize(('code','name'),add_data)
+    @pytest.mark.parametrize(('code','name'),add_data1)
     def test_location_add(self,code,name):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
@@ -47,6 +41,7 @@ class Test_Location_Manage:
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         Location_Manage_edit('01-位置修改')
+        sleep(2)
         assert new_page_source('位置修改')
 
 
@@ -61,3 +56,4 @@ class Test_Location_Manage:
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         search_item('编码',' ')
+        new_click(Factory_Mode)

@@ -4,13 +4,13 @@
 # @File : pagewopackmode.py
 # @中文描述 :  产品包装方式
 from ElementApp.WopackModePage import *
-from src.pageobjectAPP.pagelogin import *
+from src.public.common.Login import *
 
 
 # 进入工单包装界面
 def login_wopack_mode():
     new_click(workorder)
-    new_click(wopackmode)
+    new_click(workpackmode)
     print('产品包装方式界面进入成功！')
 
 

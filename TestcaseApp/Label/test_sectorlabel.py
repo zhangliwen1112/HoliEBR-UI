@@ -9,6 +9,7 @@ Created on 2020/11/18
 import pytest
 import sys
 from DataApp.LabelmgData import *
+from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Login import *
 from src.pageobjectAPP.pageLabel import *
 from src.public.common.Select_Item import *
@@ -19,15 +20,13 @@ labeldata = ''.join(random.sample(string.ascii_letters + string.digits, 4))
 
 
 class Test_sectorlabel:
-    def setup_class(self):
-        app_login(username, password)
+    def test_sectorlabel_login(self):
         login_label()
         new_click(sector)
         label_add(labeldata, labeldata, labeldata, labeldata)
         time.sleep(2)
+        assert new_page_source(labeldata)
 
-    def teardown_class(self):
-        app_logout()
 
     # 新增 标签-区段
     def test_add_sectorlabel(self):
@@ -72,6 +71,8 @@ class Test_sectorlabel:
         label_delete()
         time.sleep(2)
         assert new_page_source(sectorcode) == False
+        sleep(1)
+        Close_current_tab()
 
 
 

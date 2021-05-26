@@ -14,13 +14,11 @@ from src.public.common.elements import alert_txt
 
 
 class Test_Material_Set:
-    def setup_class(self):
-        app_login(username, password)
+    def test_Material_Set_login(self):
         login_Material_Set()
+        sleep(1)
+        assert new_page_source('物料字段设置')
 
-    def teardown_class(self):
-        Close_current_tab()
-        app_logout()
 
     # 按物料名称筛选
     def test_Material_Set_001(self):
@@ -32,12 +30,11 @@ class Test_Material_Set:
     # 编辑物料字段
     def test_Material_Set_002(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        Material_Set_edit(edit_text1,edit_text2,edit_text3)
+        Material_Set_edit(edit_text1,edit_text2)
         assert "保存成功" in new_get_text(alert_txt)
 
     # 取消筛选结果
     def test_Material_Set_003(self):
-        log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         search_item('字段显示名称',' ')
         sleep(1)
@@ -45,9 +42,10 @@ class Test_Material_Set:
 
     # 设置物料字段默认值
     def test_Material_Set_004(self):
-        log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         Material_Set_default(desc_text,material_type,material_unit,material_potency,error,material_validity,va_unit,alarm,qty,rule)
         assert "保存成功" in new_get_text(alert_txt)
+        Close_current_tab()
+
 
 

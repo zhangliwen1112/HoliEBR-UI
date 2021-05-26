@@ -6,12 +6,9 @@
 from src.public.common.Login import *
 from ElementAdmin.factorymodePage import *
 
-# 点击工厂模型
-def login_Factory():
-    new_click(Factory_Manage)
 # 进入工厂模型-企业管理页面
 def login_Company_Manage():
-    # new_click(Factory_Mode)
+    new_click(Factory_Mode)
     new_click(Company_Manage)
     print('工厂模型-企业管理页面！')
 
@@ -21,8 +18,9 @@ def Company_Manage_add(company_code, company_name):
     new_click(add)
     new_type(Code, company_code)
     new_type(Name, company_name)
+    sleep(1)
     new_click(submit)
-    new_click(fresh)
+    sleep(1)
 
 
 # 编辑企业
@@ -30,8 +28,9 @@ def Company_Manage_edit(company_name):
     new_click(First)
     new_click(edit)
     new_type(Name,company_name)
+    sleep(1)
     new_click(submit)
-    sleep(2)
+    sleep(1)
 
 
 # 删除区域

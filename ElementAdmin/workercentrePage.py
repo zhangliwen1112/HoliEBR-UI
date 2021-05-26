@@ -7,7 +7,7 @@
 # """
 
 # 进入页面 xpath
-Work_Centre = "//*[contains(text(),'工作中心')]"
+Work_Centre = "//div[@class='multi-menu-item-title']//span[text()='工作中心']"
 Worker_Centre = "//a//span[contains(text(),'工作中心')]"
 
 
@@ -36,7 +36,7 @@ store_section = "//div[4]/div/div/div/div/div/div/i"
 store_section1 = "//div[11]/ul[2]/li"
 
 submit = "//div[@class='ivu-modal-footer']//span[text()='确定']"
-
+cancel = "//div[@class='custom-width v-transfer-dom']//span[contains(text(),'取消')]"
 #删除确定取消按钮
 delete_submit = "//button[@type='button']/span[text()='确定']"
 delete_cancel = "//button[@type='button']/span[text()='取消']"

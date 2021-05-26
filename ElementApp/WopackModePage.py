@@ -56,4 +56,4 @@ packinfo_text = "//div[4]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div/input
 
 #---------------------删除弹框确认、取消按钮元素-------------------------
 yes_button = "//div[@class='DialogActions']//span[contains(.,'确定')]"
-cancle_button = "//div[@class='DialogActions']//span[contains(.,'取消')]"
+cancle_button = "//div[@class='v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable']//span[contains(.,'取消')]"

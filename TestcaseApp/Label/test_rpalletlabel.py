@@ -9,6 +9,7 @@ Created on 2020/11/18
 import pytest
 import sys
 from DataApp.LabelmgData import *
+from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Login import *
 from src.pageobjectAPP.pageLabel import *
 from src.public.common.Select_Item import *
@@ -19,17 +20,13 @@ labeldata = ''.join(random.sample(string.ascii_letters + string.digits, 4))
 
 
 class Test_rpalletlabel:
-    def setup_class(self):
-        app_login(username, password)
+    def test_rpalletlabel_login(self):
         login_label()
-        ele = new_find_elements(pallet)
-        new_click_ele(ele[2])
-        time.sleep(2)
+        new_click(rpallet)
+        sleep(2)
         label_add(labeldata, labeldata, labeldata, labeldata)
-        time.sleep(2)
-
-    def teardown_class(self):
-        app_logout()
+        sleep(2)
+        assert new_page_source(labeldata)
 
     # 新增 标签-接收托盘
     def test_add_rpalletlabel(self):
@@ -74,6 +71,8 @@ class Test_rpalletlabel:
         label_delete()
         time.sleep(2)
         assert new_page_source(rpalletcode) == False
+        sleep(1)
+        Close_current_tab()
 
 
 

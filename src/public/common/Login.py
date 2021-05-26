@@ -18,7 +18,7 @@ def app_login(app_username, app_password):
 
         new_click(login_button)
 
-        sleep(3)
+        sleep(5)
         # if is_element_present(login_button):
         #     log.info("µÇÂ¼³É¹¦")
         #     return True
@@ -48,7 +48,7 @@ def admin_login(admin_username, admin_password):
         new_type(admin_password_input, admin_password)
         new_click(admin_login_button)
 
-        sleep(3)
+        sleep(5)
 # adminÍË³ö
 def admin_logout():
     new_click(adminlogout)

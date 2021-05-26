@@ -22,9 +22,9 @@ def worker_center_add(worker_code,worker_name):
     new_click(factory)
     new_click(factory1)
     new_click(area)
-    new_click(area1)
+    driver.find_elements_by_xpath(factory1)[1].click()
     new_click(location)
-    new_click(location1)
+    driver.find_elements_by_xpath(factory1)[2].click()
     new_click(submit)
 
 # 编辑新增工作中心

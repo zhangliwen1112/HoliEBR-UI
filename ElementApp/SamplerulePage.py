@@ -21,7 +21,9 @@ allinput = '//div[@class="v-card v-sheet theme--light"]//input[@type="text"]'
 desc = '//textarea'
 addscope = '//div[@class="v-card v-sheet theme--light"]//span[text()="新增"]'
 deletescope = '//div[@class="v-card v-sheet theme--light"]//span[text()="删除"]'
-yes_button = '//div[@class="v-card v-sheet theme--light"]//span[text()="确定"]'
+yes_button = '//div[@class="v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable"]//span[text()="确定"]'
+
+cancel_button = '//div[@class="v-dialog v-dialog--active v-dialog--persistent v-dialog--scrollable"]//span[text()="取消"]'
 
 # 删除取样规则
 delete_yes_button = '//button[@color="red"]//span[contains(text(),"确定")]'

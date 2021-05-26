@@ -5,8 +5,7 @@
 # @author: zhangliwen
 # @desc:组织结构页面
 # """
-# from .base import Page
-from selenium.webdriver.common.by import By
+
 
 # 登录后“组织机构”按钮 xpath
 organize = "//span[contains(.,\'组织机构\')]"
@@ -23,10 +22,8 @@ o_delete ="//i[@class='ivu-icon ivu-icon-md-remove']"
 o_edit ="//i[@class='ivu-icon ivu-icon-md-create']"
 o_refresh ="//i[@class='ivu-icon ivu-icon-md-refresh']"
 # ----------------------------组织机构树表 新增组织机构--------------------------
-#组织名称
-OrganName = "//div[11]/div[2]/div/div/div[2]/form/div[1]/div/div/div/input"
-#组织编码
-OrganCode = "//div[11]/div[2]/div/div/div[2]/form/div[2]/div/div/div/input"
+input_option = "//div[@class='ivu-input-wrapper ivu-input-wrapper-default ivu-input-type']//input"
+
 #选择类型
 OrganType2 = "//label[contains(text(),'公司')]"  #选择公司
 OrganType3 = "//label[contains(text(),'部门')]"  #选择部门
@@ -36,8 +33,8 @@ Upper1 = "//span/ul/li" #第一级
 Upper2 = "//span/span/ul/li" #第二级
 Upper3 = "//span/span/span/ul/li" #第三级
 #确定 、取消按钮
-add_submit = '//div[11]/div[2]/div/div/div[3]/div/button[2]/span'
-add_cancel = "//div[11]/div[2]/div/div/div[3]/div/button[1]/span"
+add_submit = "//button[@class='ivu-btn ivu-btn-primary']/span[text()='确定']"
+add_cancel = "//span[contains(.,'取消')]"
 
 #展开树表结构
 group = "//div[1]/div/div[3]/div/ul/li/div/div" #集团
@@ -51,9 +48,6 @@ delete_submit = "//div[@class='ivu-poptip-inner']//span[text()='确定']"
 delete_cancel = "//div[@class='ivu-poptip-inner']//span[text()='取消']"
 
 # ------------------------------------新增用户弹框页面--------------------------------------------
-UserName = "//div[15]/div[2]/div/div/div[2]/form/div/div/div/div/input"
-UserCode = "//div[15]/div[2]/div/div/div[2]/form/div[2]/div/div/div/input"
-UserNum = "//div[15]/div[2]/div/div/div[2]/form/div[3]/div/div/div/input"
 add_UserSta = "//span[@class='ivu-select-placeholder']"
 edit_UserSta = "//span[@class='ivu-select-selected-value']"
 UserSta_online = "//li[contains(.,'在职')]"
@@ -67,8 +61,6 @@ UserOrg1 = "//li/ul[1]/li/label/span/input" #集团下第1个公司
 UserOrg2 = "//li/ul[2]/li/label/span/input" #集团下第2个公司
 UserOrg2_1 = "//li/ul[2]/li/ul[1]/li/label/span/input" #集团下第2个公司下第一个部门
 
-User_submit = "//div[15]/div[2]/div/div/div[3]/div/button[2]/span"
-User_cancel = "//div[15]/div[2]/div/div/div[3]/div/button[1]/span"
+User_submit = "//span[text()='确定']"
 #删除用户 确定、取消按钮
-DetUser_cancel = "//div[12]/div/div[2]/div[2]/button[1]/span"
-DetUser_submit = "//div[12]/div/div[2]/div[2]/button[2]/span"
+DetUser_submit = "//button[@class='ivu-btn ivu-btn-primary ivu-btn-small']//span[contains(.,'确定')]"

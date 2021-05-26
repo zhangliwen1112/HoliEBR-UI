@@ -148,6 +148,8 @@ def new_send_keys(p_object, p_value):
 
 
 def new_send_keys_ele(web_ele, p_value):
+    web_ele.send_keys(Keys.CONTROL, 'a')
+    web_ele.send_keys(Keys.DELETE)
     web_ele.send_keys(p_value)
 
 
@@ -304,6 +306,7 @@ def new_get_attribute(p_object, name):
 def new_get_text(p_object):
     element = new_find_element(p_object)
     textcontent = element.text
+    print(textcontent)
     return textcontent
 
 

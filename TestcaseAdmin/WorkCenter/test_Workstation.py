@@ -6,27 +6,22 @@ Created on 2020/9/8
 @desc: 工作站
 """
 
-import pytest
 import sys
 from src.pageobjectAdmin.pageworkstation import *
 from DataAdmin.WorkstationData import *
-from src.public.common.Login import *
 from src.public.common.Select_Item import *
 from src.public.common.Search_Item import *
 
 
 
 class Test_Workstation:
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_workstation_login(self):
         login_workstation()
-
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增工作站
     def test_add_workstation(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        sleep(1)
         workstation_add(addnamedata, addcodedata)
         time.sleep(2)
         assert new_page_source(addnamedata)
@@ -57,9 +52,6 @@ class Test_Workstation:
         workstation_delete()
         time.sleep(2)
         assert new_page_source(addnamedata) == False
-
-
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_workstationcase.py'])
+        sleep(1)
+        new_click(workcenter)
+        sleep(1)

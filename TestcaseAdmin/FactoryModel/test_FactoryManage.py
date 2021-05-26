@@ -16,27 +16,24 @@ from src.public.common.relation_remove import *
 
 class Test_Factory_Manage:
     # 登陆环境,进入工厂模型-厂区管理页面
-    def setup_class(self):
-        # admin_login(admin_username, admin_password)
+    def test_factory_login(self):
         login_Factory_Manage()
         sleep(1)
 
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增厂区
     def test_factory_add(self):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        Factory_Manage_add(code,name)
-        assert new_page_source(name)
+        Factory_Manage_add(code01,name01)
+        assert new_page_source(name01)
 
     # 筛选 按编码查询
     def test_factory_search(self):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        search_item('编码', code)
-        assert new_page_source(name)
+        search_item('编码', code01)
+        assert new_page_source(name01)
 
     # 编辑区域
     def test_factory_edit(self):
@@ -71,3 +68,4 @@ class Test_Factory_Manage:
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         search_item('编码',' ')
+        new_click(Factory_Mode)

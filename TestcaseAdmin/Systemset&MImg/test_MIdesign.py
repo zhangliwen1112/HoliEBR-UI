@@ -12,14 +12,10 @@ from src.public.common.Login import *
 from src.public.common.Search_Item import *
 
 class Test_MImanage:
-    def setup_class(self):
-        # admin_login(username, password)
-        login_MI()
+    def test_mimanage_login(self):
         login_mimanage()
         sleep(2)
 
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增MI
     def test_mimanage_add(self):
@@ -66,3 +62,4 @@ class Test_MImanage:
         assert (is_text_present(add_code),'删除不成功！')
         search_item('MI编码',' ')
         sleep(1)
+        new_click(promg)

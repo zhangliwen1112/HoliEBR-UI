@@ -18,7 +18,7 @@ def login_Material_Set():
 
 
 # 编辑物料字段设置
-def Material_Set_edit(isMand=None, isImpac=None, isERP=None):
+def Material_Set_edit(isMand=None, isImpac=None):
     new_click(edit)
     sleep(1)
     if isMand == '必填':
@@ -38,13 +38,6 @@ def Material_Set_edit(isMand=None, isImpac=None, isERP=None):
     else:
         if new_find_elements(isselect)[1].get_attribute('aria-checked') == 'true':
             new_click(isImpactValidation)
-
-    if isERP == '来自EPR':
-        if new_find_elements(isselect)[2].get_attribute('aria-checked') == 'false':
-            new_click(isFromERP)
-    else:
-        if new_find_elements(isselect)[2].get_attribute('aria-checked') == 'true':
-            new_click(isFromERP)
 
     new_click(yes_button)
     sleep(1)
@@ -194,6 +187,5 @@ def Material_Set_default(desc_text, material_type, material_unit, material_poten
         new_click(sample_C)
     else:
         new_click(sample_Z)
-    new_click(sample_yes)
     new_click(yes_button)
     sleep(2)

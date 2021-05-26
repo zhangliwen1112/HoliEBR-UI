@@ -9,6 +9,7 @@ Created on 2020/11/18
 import pytest
 import sys
 from DataApp.LabelmgData import *
+from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Login import *
 from src.pageobjectAPP.pageLabel import *
 from src.public.common.Select_Item import *
@@ -19,17 +20,14 @@ labeldata = ''.join(random.sample(string.ascii_letters + string.digits, 4))
 
 
 class Test_ocontainerlabel:
-    def setup_class(self):
-        app_login(username, password)
-        login_label()
-        ele = new_find_elements(container)
-        new_click_ele(ele[1])
-        time.sleep(2)
-        label_add(labeldata, labeldata, labeldata, labeldata)
-        time.sleep(2)
 
-    def teardown_class(self):
-        app_logout()
+    def test_ocontainerlabel_login(self):
+        login_label()
+        new_click(ocontainer)
+        sleep(2)
+        label_add(labeldata, labeldata, labeldata, labeldata)
+        sleep(2)
+        assert new_page_source(labeldata)
 
     # 新增 标签-产出容器
     def test_add_ocontainerlabel(self):
@@ -74,6 +72,8 @@ class Test_ocontainerlabel:
         label_delete()
         time.sleep(2)
         assert new_page_source(ocontainercode) == False
+        sleep(1)
+        Close_current_tab()
 
 
 if __name__ == '__main__':

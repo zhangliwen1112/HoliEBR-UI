@@ -18,8 +18,9 @@ def login_organize_manage():
 # 新增企业
 def organize_add_orgcom(name, code, type):
     new_click(o_add)
-    new_type(OrganName, name)
-    new_type(OrganCode, code)
+    ele = driver.find_elements_by_xpath(input_option)
+    new_send_keys_ele(ele[1],name)
+    new_send_keys_ele(ele[2],code)
     if type == '公司':
         new_click(OrganType2)
     else:
@@ -33,7 +34,8 @@ def organize_add_orgcom(name, code, type):
     if is_element_present(error_tips):
         new_get_text(error_tips)
     if new_page_source('请按照格式要求填写数据'):
-        new_click(add_cancel)
+        driver.find_elements_by_xpath(add_cancel)[2].click()
+
 
 
 # 编辑企业
@@ -42,7 +44,8 @@ def organize_edit_orgcom(name, type):
     new_click(company1)
     new_click(company1_1)
     new_click(o_edit)
-    new_type_double(OrganName, name)
+    ele = driver.find_elements_by_xpath(input_option)
+    new_send_keys_ele(ele[1], name)
     if type == '公司':
         new_click(OrganType2)
     else:
@@ -56,7 +59,7 @@ def organize_edit_orgcom(name, type):
         new_get_text(error_tips)
     # 异常判断
     if new_page_source('请按照格式要求填写数据'):
-        new_click(add_cancel)
+        driver.find_elements_by_xpath(add_cancel)[2].click()
     new_click(group)
 
 
@@ -77,9 +80,10 @@ def organize_refresh_orgcom():
 # 新增用户名
 def organize_user_add(user, code, tel, status, male):
     new_click(add)
-    new_type(UserName, user)
-    new_type(UserCode, code)
-    new_type(UserNum, tel)
+    ele = driver.find_elements_by_xpath(input_option)
+    new_send_keys_ele(ele[4], user)
+    new_send_keys_ele(ele[5], code)
+    new_send_keys_ele(ele[6], tel)
     new_click(add_UserSta)
     if status == '离职':
         new_click(UserSta_off)
@@ -93,40 +97,41 @@ def organize_user_add(user, code, tel, status, male):
     sleep(1)
     new_click(UserDate_first)
     new_click(UserOrg1)
-    new_click(User_submit)
+    driver.find_elements_by_xpath(User_submit)[3].click()
     sleep(0.5)
     # 异常判断
     if is_element_present(error_tips):
         new_get_text(error_tips)
     if new_page_source('请按照格式要求填写数据'):
-        new_click(User_cancel)
+        driver.find_elements_by_xpath(add_cancel)[4].click()
 
 
 # 修改新增的用户
 def organize_user_edit(name, tel, status):
     new_click(edit)
     sleep(0.5)
-    new_type_double(UserName, name)
-    new_type_double(UserNum, tel)
+    ele = driver.find_elements_by_xpath(input_option)
+    new_send_keys_ele(ele[4], name)
+    new_send_keys_ele(ele[6], tel)
     new_click(edit_UserSta)
     if status == '离职':
         new_click(UserSta_off)
     else:
         new_click(UserSta_online)
     new_click(UserOrg2)
-    new_click(User_submit)
+    driver.find_elements_by_xpath(User_submit)[3].click()
     sleep(0.5)
     # 异常判断
     if is_element_present(error_tips):
         new_get_text(error_tips)
     if new_page_source('请按照格式要求填写数据'):
-        new_click(User_cancel)
+        driver.find_elements_by_xpath(add_cancel)[4].click()
 
 
 # 删除增加的用户
 def organize_user_delete():
     new_click(delete)
-    new_click(DetUser_submit)
+    driver.find_elements_by_xpath(DetUser_submit)[1].click()
 
 
 # 刷新列表

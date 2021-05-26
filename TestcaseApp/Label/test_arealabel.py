@@ -9,6 +9,7 @@ Created on 2020/11/18
 import pytest
 import sys
 from DataApp.LabelmgData import *
+from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Login import *
 from src.pageobjectAPP.pageLabel import *
 from src.public.common.Select_Item import *
@@ -18,14 +19,13 @@ import random,string
 labeldata = ''.join(random.sample(string.ascii_letters + string.digits, 4))
 
 class Test_arealabel:
-    def setup_class(self):
-        app_login(username, password)
-        login_label()
+    def test_arealabel_add(self):
+        new_click(labelmg)
         new_click(area)
         label_add(labeldata, labeldata, labeldata, labeldata)
+        sleep(2)
+        assert new_page_source(labeldata)
 
-    def teardown_class(self):
-        app_logout()
 
     # 新增 标签-区域
     def test_add_arealabel(self):
@@ -72,6 +72,8 @@ class Test_arealabel:
         label_delete()
         time.sleep(2)
         assert new_page_source(areacode)
+        sleep(1)
+        Close_current_tab()
 
 
 

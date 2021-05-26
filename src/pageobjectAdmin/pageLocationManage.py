@@ -10,7 +10,7 @@ from ElementAdmin.factorymodePage import *
 
 # 进入工厂模型-位置管理页面
 def login_Location_Manage():
-    # new_click(Factory_Mode)
+    new_click(Factory_Mode)
     new_click(Location_Manage)
     print('工厂模型-位置管理页面！')
 
@@ -20,7 +20,6 @@ def Location_Manage_add(location_code,location_name):
     new_type(Code,location_code)
     new_type(Name,location_name)
     new_click(submit)
-    new_click(fresh)
     sleep(1)
 
 
@@ -28,6 +27,7 @@ def Location_Manage_add(location_code,location_name):
 def Location_Manage_edit(location_name):
     new_click(First)
     new_click(edit)
+    sleep(1)
     new_type(Name,location_name)
     new_click(submit)
     sleep(1)

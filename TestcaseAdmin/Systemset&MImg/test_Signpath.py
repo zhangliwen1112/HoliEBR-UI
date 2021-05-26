@@ -18,11 +18,7 @@ from src.public.common.Search_Item import *
 
 class Test_Signpath:
     def setup_class(self):
-        # admin_login(username, password)
         login_signpath()
-
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增签名路径
     def test_add_signpath(self):
@@ -77,8 +73,6 @@ class Test_Signpath:
         signpath_delete()
         time.sleep(2)
         assert new_page_source(addnamedata) == False
+        new_click(sysset)
 
 
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_signpathcase.py'])

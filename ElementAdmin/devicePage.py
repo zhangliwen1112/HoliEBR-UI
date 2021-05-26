@@ -42,7 +42,7 @@ worker_all = "//input[@class='ivu-checkbox-input']"
 worker_submit = "//button[1]/span[text()='确定']"
 des = "//textarea[@placeholder='请输入描述']"
 submit = "//div[@class='ivu-modal-footer']//button[2]/span[text()='确定']"
-
+cancel = "//div[@class='custom-width v-transfer-dom']//span[contains(text(),'取消')]"
 #删除确定取消按钮
 delete_submit = "//button[@type='button']/span[text()='确定']"
 delete_cancel = "//button[@type='button']/span[text()='取消']"

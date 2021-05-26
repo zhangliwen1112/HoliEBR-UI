@@ -12,15 +12,8 @@ from src.public.common.Search_Item import *
 
 class Test_Organize:
     # 登陆环境
-    def setup_class(self):
-        # admin_login(admin_username, admin_password)
-        # sleep(1)
+    def test_orgcom_login(self):
         login_organize_manage()
-
-    def teardown_class(self):
-        organize_user_delete()
-        organize_delete_orgcom()
-        # admin_logout()
 
     # 新增企业 -- 机构名称异常场景
     @pytest.mark.parametrize('add_name, code, add_type', add_orgname_abnormal_list)
@@ -35,6 +28,7 @@ class Test_Organize:
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         organize_add_orgcom(add_name, code, add_type)
         assert new_page_source('请按照格式要求填写数据')
+        sleep(2)
 
     # 新增企业
     def test_add_orgcom(self):
@@ -71,17 +65,14 @@ class Test_Organize:
         organize_user_add(users, user_code, tel, status, male)
         assert new_page_source('请按照格式要求填写数据')
 
-    # 新增用户
-    def test_org_user_add(self):
-        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        organize_user_add(users, user_code, tel, status, male)
-        sleep(1)
-        assert new_page_source(users)
 
     # 修改用户--姓名异常场景
     @pytest.mark.parametrize('users, tel, status',edit_user_abnormal_list)
     def test_org_username_edit(self,users, tel, status):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        sleep(1)
+        organize_user_add(users, user_code, tel, status, male)
+        sleep(2)
         organize_user_edit(users, tel, status)
         assert new_page_source('请按照格式要求填写数据')
 
@@ -91,3 +82,9 @@ class Test_Organize:
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         organize_user_edit(users, tel, status)
         assert new_page_source('请按照格式要求填写数据')
+
+    def test_orgcom_delete(self):
+        organize_user_delete()
+        organize_delete_orgcom()
+
+

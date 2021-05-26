@@ -17,16 +17,11 @@ from src.public.common.Search_Item import *
 
 
 class Test_stolocation:
-    def setup_class(self):
-        app_login(username, password)
-        login_stolocation()
-
-    # def teardown_class(self):
-    #     app_logout()
 
     # 新增库位
     def test_add_stolocation(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        login_stolocation()
         stolocation_add(addcodedata, addnamedata)
         time.sleep(2)
         assert new_page_source(addcodedata)

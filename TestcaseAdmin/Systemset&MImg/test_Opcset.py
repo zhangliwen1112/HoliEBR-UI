@@ -17,12 +17,10 @@ from src.public.common.Search_Item import *
 
 
 class Test_Opcset:
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_opcset_login(self):
         login_opcset()
+        sleep(1)
 
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增opc设置
     def test_add_opcset(self):
@@ -76,10 +74,9 @@ class Test_Opcset:
         select_item(addnamedata)
         opcset_delete()
         assert new_page_source(addnamedata)
+        sleep(1)
+        new_click(syset)
 
 
 
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_opcsetcase.py'])
 

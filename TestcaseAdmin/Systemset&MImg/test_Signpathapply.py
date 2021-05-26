@@ -19,12 +19,13 @@ from DataAdmin.SignpathData import *
 
 class Test_Signpathapply:
 
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_signpathapply_login(self):
         # 新增MI
         login_mimanage()
+        sleep(1)
         mimanage_add(signpathmidata)
         new_click(promg)
+        sleep(1)
         # 新增签名路径
         login_signpath()
         time.sleep(2)
@@ -33,25 +34,8 @@ class Test_Signpathapply:
         signpath_verify()
         new_click(sysset)
         # 进入签名路径界面
-        time.sleep(2)
+        sleep(2)
         login_signpathapply()
-
-    def teardown_class(self):
-        # 删除MI
-        login_mimanage()
-        select_item(signpathmidata)
-        mimanage_delete()
-        new_click(promg)
-        # 删除签名路径
-        login_signpath()
-        time.sleep(2)
-        select_item(signpathapply_codedata)
-        signpath_cancelverify()
-        time.sleep(2)
-        select_item(signpathapply_codedata)
-        signpath_delete()
-        sleep(1)
-        # admin_logout()
 
     # 配置签名路径
     def test_config_signpathapply(self):
@@ -82,7 +66,23 @@ class Test_Signpathapply:
         search_item("MI编码", signpathmidata)
         time.sleep(2)
         assert new_page_source(signpathmidata) == False
+        new_click(promg)
+
+    def test_signpathapply_delete(self):
+        # 删除MI
+        login_mimanage()
+        select_item(signpathmidata)
+        mimanage_delete()
+        new_click(promg)
+        # 删除签名路径
+        login_signpath()
+        time.sleep(2)
+        select_item(signpathapply_codedata)
+        signpath_cancelverify()
+        time.sleep(2)
+        select_item(signpathapply_codedata)
+        signpath_delete()
+        sleep(1)
+        new_click(sysset)
 
 
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_Signpathapply.py'])

@@ -8,12 +8,10 @@
 from ElementAdmin.MIPage import *
 from src.public.FunctionSet import *
 
-# 点击MI管理
-def login_MI():
-    new_click(promg)
 
 # 进入MI管理界面
 def login_mimanage():
+    new_click(promg)
     new_click(mimg)
 
 

@@ -16,12 +16,9 @@ from src.public.common.Select_Item import *
 
 
 class Test_Usergp:
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_usergp_login(self):
         login_usergp()
-
-    # def teardown_class(self):
-    #     admin_logout()
+        sleep(1)
 
     # 新增用户组
     def test_add_usergp(self):
@@ -53,10 +50,7 @@ class Test_Usergp:
         usergp_delete()
         time.sleep(2)
         assert new_page_source(addnamedata) == False
+        new_click(authmg)
 
 
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_usergpcase.py'])
 

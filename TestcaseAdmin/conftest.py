@@ -11,6 +11,7 @@ import os
 from selenium import webdriver
 import pytest
 from src.public.WebDriverLib import WebDriverLib
+from src.public.common.Login import  admin_login, admin_logout
 
 wb = WebDriverLib()
 
@@ -67,3 +68,12 @@ def pytest_collection_modifyitems(session,items):
     for item in items:
         item.name = item.name.encode("utf-8").decode("unicode-escape")
         item._nodeid = item._nodeid.encode("utf-8").decode("unicode-escape")
+
+@pytest.fixture(scope='session', autouse=True)
+def app_setup_function():
+    username = 'wang'
+    password = '1'
+    admin_login(username, password)
+    yield
+    admin_logout()
+

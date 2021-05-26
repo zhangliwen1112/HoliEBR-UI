@@ -30,6 +30,20 @@ def signpath_add(addcode, addname, addlevel):
     ele = new_find_elements(yes_button)
     new_click_ele(ele[1])
 
+# 新增签名路径，签名级别异常
+def signpath_add_abnormal(addcode, addname, addlevel):
+    new_click(add)
+    ele = new_find_elements(code_name_level)
+    new_send_keys_ele(ele[1], addcode)
+    new_send_keys_ele(ele[2], addname)
+    new_click(addsignlevel)
+    ele = new_find_elements(code_name_level)
+    new_send_keys_ele(ele[3], addlevel)
+    new_click(group)
+    new_click(admingp)
+    ele = new_find_elements(yes_button)
+
+
 # 编辑签名路径
 def signpath_edit(editname):
     new_click(edit)

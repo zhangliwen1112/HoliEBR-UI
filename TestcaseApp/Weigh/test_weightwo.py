@@ -83,6 +83,61 @@ class Test_Weightwo:
         sleep(2)
         assert new_js_text(input_container) == ''
 
+	 # 毛重称量
+    def test_gross_weigh(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        grossweighmode("0.2")
+        time.sleep(2)
+
+    # RM混合
+    def test_rmmix_weigh(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        rmweighmode("0.2")
+        time.sleep(2)
+
+    # 称量次数
+    def test_weigh_times(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        sleep(7)
+        times1 = new_js_text(weightimes)
+        grossweighmode("0.2")
+        time.sleep(2)
+        times2 = new_js_text(weightimes)
+        assert int(times1)+1 == int(times2)
+
+    # 总重量
+    def test_total_weigh(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        sleep(7)
+        weigh1 = new_js_text(totalweigh)
+        grossweighmode("0.2")
+        time.sleep(2)
+        weigh2 = new_js_text(totalweigh)
+        assert float(weigh1)+3.087 == float(weigh2)
+
+    # 强制称量
+    def test_force_weigh(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        forceweigh()
+        assert new_page_source('称量完成')
+
+    # 物料信息
+    def test_material_info(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        material_info()
+        sleep(1)
+        assert new_get_text(stage) == '0001'
+        assert new_get_text(seq) == '0001'
+        assert new_get_text(dose) == '1'
+        new_click(closed)
+
+    # 托盘标签
+    def test_pallet_label(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        pallet_label()
+        assert new_get_text(alert_txt) == '打印信息发送成功'
+
+
     # 输入容器识别号-容器号不存在
     @pytest.mark.parametrize('CID', ['1232323'])
     def test_weightwo_containerid_adnormal_001(self, CID):
@@ -126,6 +181,7 @@ class Test_Weightwo:
         sleep(1)
         remain2 = float(new_js_text(remain_number))
         assert remain2 == remain1 - 10
+
     # 净重称量模式-净重正确性比对
     def test_weightwo_net_netvalue(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)

@@ -25,7 +25,7 @@ def auth_add(addcode, addname, addinte):
 # 编辑权限按钮
 def auth_edit(editname, editinte):
     new_click(edit)
-    new_send_keys(name, editname)
+    new_type_double(name, editname)
     new_send_keys(i18n, editinte)
     new_click(yes_button)
 

@@ -17,12 +17,9 @@ from src.public.common.Search_Item import *
 
 
 class Test_Signrule:
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_signrule_login(self):
         login_signrule()
 
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增签名规则
     def test_add_signrule(self):
@@ -60,6 +57,7 @@ class Test_Signrule:
         signrule_delete()
         time.sleep(2)
         assert new_page_source(addnamedata) == False
+        new_click(authmg)
 
 
 

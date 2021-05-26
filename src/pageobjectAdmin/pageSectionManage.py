@@ -8,54 +8,52 @@ from ElementAdmin.factorymodePage import *
 
 # 进入工厂模型-区段管理页面
 def login_section_manage():
-    # new_click(Factory_Mode)
+    new_click(Factory_Mode)
     new_click(Section_Manage)
     print('工厂模型-区段管理页面！')
 
 # 新增区段
-def section_manage_add(*args):
+def section_manage_add(code,name,type='生产',type2 = '原材料'):
     new_click(add)
-    new_type(Code,args[0])
-    new_type(Name,args[1])
+    new_type(Code,code)
+    new_type(Name,name)
     new_click(section_type)
-    if args[2] == '仓库':
+    if type == '仓库':
         new_click(section_type2)
         new_click(store_type)
-        if args[3] == '原材料':
+        if type2 == '原材料':
             new_click(store_type1)
-        elif args[3] == '半成品':
+        elif type2 == '半成品':
             new_click(store_type2)
-        elif args[3] == '包材':
+        elif type2 == '包材':
             new_click(store_type3)
         else:
             new_click(store_type4)
     else:
         new_click(section_type1)
     new_click(submit)
-    new_click(fresh)
     sleep(1)
 
 #编辑区段
-def section_manage_edit(*args):
+def section_manage_edit(name,type='生产',type2 = '原材料'):
     new_click(First)
     new_click(edit)
-    new_type(Name,args[0])
+    new_type(Name,name)
     new_click(section_type)
-    if args[1] == '仓库':
+    if type == '仓库':
         new_click(section_type2)
         new_click(store_type)
-        if args[2] == '原材料':
+        if type2 == '原材料':
             new_click(store_type1)
-        elif args[2] == '半成品':
+        elif type2 == '半成品':
             new_click(store_type2)
-        elif args[2] == '包材':
+        elif type2 == '包材':
             new_click(store_type3)
         else:
             new_click(store_type4)
     else:
         new_click(section_type1)
     new_click(submit)
-    new_click(fresh)
     sleep(1)
 
 # 删除区域

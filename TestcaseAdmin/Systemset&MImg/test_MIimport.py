@@ -12,14 +12,10 @@ from src.public.common.Login import *
 from src.public.common.Search_Item import *
 
 class Test_MImanage:
-    def setup_class(self):
-        # admin_login(username, password)
-        # sleep(2)
+    def test_mimanage_login(self):
         login_mimanage()
         sleep(2)
 
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增MI
     def test_mimanage_add(self):
@@ -58,3 +54,5 @@ class Test_MImanage:
         sleep(2)
         assert '已发布' in new_get_text("//div[@role='row' and @row-index='0']//span[@aria-colindex='6']")
         search_item('MI编码', ' ')
+        sleep(1)
+        new_click(promg)

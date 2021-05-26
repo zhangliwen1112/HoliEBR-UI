@@ -9,16 +9,14 @@ from src.pageobjectAPP.pageCancelWeight import *
 from src.public.common.Close_current_tab import *
 from DataApp.CancelWeightData import *
 
-class Test_returned_materials:
-    def setup_class(self):
-        app_login(username, password)
-        login_cancel_weight()
-
-
-    def teardown_class(self):
-        Close_current_tab()
-        app_logout()
+class Test_cancel_weighting:
 
     def test_login(self):
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        login_cancel_weight()
+        new_page_source('取消称量')
+
+    def test_cancel_execute(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         cancel_weight_execute(label3)
+        Close_current_tab()

@@ -36,7 +36,7 @@ First = "//div[@role=\"row\" and @row-index=\"0\"]"
 
 # ----------------------------新增、关联页面确定按钮------------------------
 submit = "//button[@class='ivu-btn ivu-btn-primary']/span[text()='确定']"
-
+cancel = "//div[@class='custom-width v-transfer-dom']//span[contains(text(),'取消')]"
 
 #删除确定取消按钮
 delete_submit = "//button[@type='button']/span[text()='确定']"

@@ -16,11 +16,12 @@ def login_device_manage():
 
 
 # 新增设备
-def device_manage_add(device_code,device_name,device_type,device_status,device_address,device_des):
+def device_manage_add(device_code,device_name,device_type,device_status,device_address,device_des=''):
     new_click(add)
     new_type(code,device_code)
     new_type(name,device_name)
     new_click(type)
+    sleep(1)
     if device_type == '打印机':
         new_click(type1)
     elif device_type == '电子秤':
@@ -50,6 +51,7 @@ def device_manage_edit(*args):
     sleep(1)
     new_click(edit)
     new_type(name,args[0])
+    sleep(1)
     new_click(type)
     if args[1] == '打印机':
         new_click(type1)

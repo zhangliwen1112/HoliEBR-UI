@@ -12,16 +12,11 @@ from src.public.common.Select_Item import select_item
 
 
 class Test_Material_Set:
-    def setup_class(self):
-        app_login(username, password)
+    def test_Riskprevention_login(self):
         login_Riskprevention()
         riskprevention_add(addcodedata, addcdescdata, addedescdata)
+        assert new_page_source(addcdescdata)
 
-    def teardown_class(self):
-        select_item(addcodedata)
-        riskprevention_delete()
-        Close_current_tab()
-        app_logout()
 
     # 新增危险防范信息--编码异常
     @pytest.mark.parametrize('addcodedata, addcdescdata, addedescdata', code_abnormal_list)
@@ -57,3 +52,10 @@ class Test_Material_Set:
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         riskprevention_edit(addcdescdata, addedescdata)
         assert new_page_source('请按照格式要求填写数据')
+
+    def test_riskprevention_delete(self):
+        log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
+        select_item(addcodedata)
+        riskprevention_delete()
+        sleep(1)
+        Close_current_tab()

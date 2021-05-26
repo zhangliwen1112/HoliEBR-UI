@@ -22,3 +22,4 @@ delete = "//div[@class='right']//i[@class='ivu-icon ivu-icon-md-remove']"
 name = '//input[@placeholder="请输入" and @class="ivu-input ivu-input-default" ]'
 
 yes_button = '//span[text()="确定"]'
+cancel_button = '//div[@class="ivu-modal-footer"]//span[contains(text(),"取消")]'

@@ -21,7 +21,9 @@ def label_add(addcode, addname, adddesc, addzpl):
     new_send_keys_ele(ele[1], addname)
     new_send_keys_ele(ele[2], adddesc)
     new_send_keys(zpl, addzpl)
+    sleep(1)
     new_click(yes_button)
+    sleep(1)
 
 # 编辑标签
 def label_edit(editname, editdesc, editzpl):

@@ -8,15 +8,13 @@ import pytest
 from DataApp.CleanData import *
 from src.public.Logger import *
 from src.pageobjectAPP.pageClean import *
+from src.public.common.Close_current_tab import Close_current_tab
+
 
 class Test_Clean:
-    def setup_class(self):
-        app_login(username, password)
+    def test_clean_login(self):
         login_clean()
-
-    #
-    def teardown_class(self):
-        app_logout()
+        assert new_page_source('清洁配置')
 
     # 新增清洁配置
     # @pytest.mark.skip
@@ -44,3 +42,4 @@ class Test_Clean:
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         clean_delete()
         assert (is_text_present('xiugai'),'删除失败！')
+        Close_current_tab()

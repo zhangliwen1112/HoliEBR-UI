@@ -9,12 +9,15 @@ Created on 2020/11/18
 
 from ElementApp.MIexctPage import *
 from src.public.FunctionSet import *
-from src.public.common.Login import *
-
+from src.public.common.Login import app_login
+from selenium.webdriver.common.keys import Keys
 
 
 def Repeatweigh():
-    #进入MI执行界面
+
+    app_login('wang','1')
+
+    # 进入MI执行界面
     new_click(manufacture)
     new_click(miexct)
 
@@ -23,14 +26,17 @@ def Repeatweigh():
     new_click(wo1)
     new_click(woyes)
 
-# 反复称量
-for i in range(1):
-    new_click(containerlist)
-    new_click(container1)
-    new_click(yes)
-    new_click(verify)
-    new_type_double(value, '0.1')
-    new_click(no)
+    # 反复称量
+    for i in range(500):
+        new_click(containerlist)
+        new_click(container1)
+        new_click(yes)
+        new_click(verify)
+        new_click(yes)
+        sleep(2)
+        a=new_find_element(value)
+        a.send_keys(Keys.CONTROL, 'a')
+        new_click(no)
 
 
 

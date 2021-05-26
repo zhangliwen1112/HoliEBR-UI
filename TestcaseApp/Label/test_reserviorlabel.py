@@ -9,6 +9,7 @@ Created on 2020/11/18
 import pytest
 import sys
 from DataApp.LabelmgData import *
+from src.public.common.Close_current_tab import Close_current_tab
 from src.public.common.Login import *
 from src.pageobjectAPP.pageLabel import *
 from src.public.common.Select_Item import *
@@ -19,15 +20,12 @@ labeldata = ''.join(random.sample(string.ascii_letters + string.digits, 4))
 
 
 class Test_reserviorlabel:
-    def setup_class(self):
-        app_login(username, password)
+    def test_reserviorlabel_login(self):
         login_label()
         new_click(reservior)
         label_add(labeldata, labeldata, labeldata, labeldata)
         time.sleep(2)
-
-    def teardown_class(self):
-        app_logout()
+        assert new_page_source(labeldata)
 
     # 新增 标签-库区
     def test_add_reserviorlabel(self):
@@ -72,6 +70,8 @@ class Test_reserviorlabel:
         label_delete()
         time.sleep(2)
         assert new_page_source(reserviorcode) == False
+        sleep(1)
+        Close_current_tab()
 
 
 if __name__ == '__main__':

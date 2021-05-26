@@ -3,10 +3,15 @@
 # @Author : 张丽雯 
 # @File : pageCancelWeight.py
 # @中文描述 :  取消称量--退料、取消称量
+import sys
+
 from ElementApp.CancelWeightPage import *
 from src.public.common.Login import *
 
 # ---------------------------------------------退料界面-------------------------------------------------
+from src.public.common.elements import error_message
+
+
 def login_returned_materials():
     new_click(inventory)
     new_click(cancelweight)
@@ -73,14 +78,18 @@ def cancel_weight_execute(label):
     new_click(reservoir1)
     new_click(c_stolocation)
     new_click(stolocation1)
-    for a in label:
-        new_type(weight_label,a)
+    for i in label:
+        new_type_double(weight_label,i)
+        sleep(1)
         new_click(any_ele)
-        sleep(1)
-        new_click(add)
-        sleep(1)
-        if new_page_source('执行后会将该次称量加入待取消列表，是否继续？'):
-            new_click(yes_button)
+        sleep(2)
+        if is_element_present(error_message):
+            return
+        else:
+            new_click(add)
+            sleep(1)
+            if new_page_source('执行后会将该次称量加入待取消列表，是否继续？'):
+                new_click(yes_button)
     new_click(execute)
     sleep(1)
     if new_page_source('目标库位的库区与物料上设定的默认/备用库区不兼容,是否继续执行该操作？'):

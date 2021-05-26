@@ -15,12 +15,6 @@ from src.public.common.relation_remove import *
 
 
 class Test_Section_Manage():
-    # 登陆环境
-    # def setup_class(self):
-    #     admin_login(admin_username, admin_password)
-    #
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 进入工厂模型-区段管理页面
     def test_section_manage(self):
@@ -33,15 +27,15 @@ class Test_Section_Manage():
     def test_section_add(self):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        section_manage_add(section_code,add_name,add_type1)
-        assert new_page_source(add_name)
+        section_manage_add(section_code01,add_name01,add_type1)
+        assert new_page_source(add_name01)
 
     # 筛选区段
     def test_section_search(self):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        search_item('编码',section_code)
-        assert new_page_source(add_name)
+        search_item('编码',section_code01)
+        assert new_page_source(add_name01)
 
     # 编辑区段
     def test_section_edit(self):
@@ -74,3 +68,4 @@ class Test_Section_Manage():
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         search_item('编码',' ')
+        new_click(Factory_Mode)

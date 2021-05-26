@@ -18,12 +18,9 @@ from src.public.common.Search_Item import *
 
 
 class Test_Sign:
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_signset(self):
         login_signset()
 
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增签名设置
     def test_add_sign(self):
@@ -50,9 +47,6 @@ class Test_Sign:
         sign_delete()
         time.sleep(2)
         assert new_page_source(addnamedata) == False
+        sleep(1)
+        new_click(authmg)
 
-
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_signcase.py'])

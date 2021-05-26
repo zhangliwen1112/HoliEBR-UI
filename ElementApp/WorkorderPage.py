@@ -28,6 +28,7 @@ formulasele = '//td/div/div'
 formulayes = "//div[@class='text-sm-right pt-2']//span[contains(.,'确定')]"
 qty = '//div[@class="v-card v-sheet theme--light"]//input[@name="qty"]'
 yes_button = "//span[text()='确定']"
+cancel_button = '//button[@class="v-btn v-btn--contained theme--light v-size--default"]//span[text()="取消"]'
 type = "//div[@class='v-select__selections']//div[text()='生产工单']"
 type_produce = "//div[@role='listbox']//div[text()='生产工单']"
 type_weight = "//div[@role='listbox']//div[text()='称量工单']"
@@ -47,7 +48,7 @@ save = "//span[text()='保存']"
 re_input = '//form[@class="v-form"]//div[@class="layout row wrap"]//input[@readonly="readonly" and @type="text"]'
 workcentersele = "//th//div//div"
 workcenteryes = '//div[@class="v-card v-sheet theme--light"]//span[contains(text(),"确定")]'
-misele = '//td[text()="gongxu"]'
+misele = '//td[text()="demo1"]'
 miyes = '//div[@class="v-menu__content theme--light v-menu__content--fixed' \
         ' menuable__content__active "]//span[text()="确定"]'
 re_yes_button = '//div[@class="v-dialog v-dialog--active v-dialog--persistent ' \

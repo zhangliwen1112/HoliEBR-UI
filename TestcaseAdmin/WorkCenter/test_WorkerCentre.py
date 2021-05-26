@@ -6,7 +6,6 @@ Created on 2020/9/14
 @desc:HoliEBR-Admin 工作中心
 """
 import sys
-import pytest
 from src.pageobjectAdmin.pageWorkerCentre import *
 from DataAdmin.WorkerCentreData import *
 from src.public.Logger import Log
@@ -14,14 +13,6 @@ from src.public.common.Search_Item import *
 from src.public.common.relation_remove import *
 
 class Test_WorkerCenter():
-    # 登陆环境
-    # def setup_class(self):
-    #     admin_login(admin_username, admin_password)
-    #     sleep(2)
-    #
-    # # 退出环境
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 进入工作中心页面
     def test_workercenter_manage(self):
@@ -34,17 +25,17 @@ class Test_WorkerCenter():
     def test_workercenter_add(self):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        worker_center_add(add_code, add_name)
+        worker_center_add(add_code1, add_name1)
         sleep(1)
-        assert new_page_source(add_name)
+        assert new_page_source(add_name1)
 
     # 筛选工作中心
     def test_workercenter_search(self):
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
-        search_item('编码',add_code)
+        search_item('编码',add_code1)
         sleep(1)
-        assert new_page_source(add_name)
+        assert new_page_source(add_name1)
 
     # 编辑新增工作中心
     def test_workercenter_edit(self):
@@ -79,6 +70,9 @@ class Test_WorkerCenter():
         log = Log()
         log.info("开始执行用例%s" % sys._getframe().f_code.co_name)
         search_item('编码',' ')
+        sleep(1)
+        new_click(Work_Centre)
+        sleep(1)
 
 
 

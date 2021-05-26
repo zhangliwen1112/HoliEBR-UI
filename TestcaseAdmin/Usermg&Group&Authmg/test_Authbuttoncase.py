@@ -15,12 +15,8 @@ from src.public.common.Select_Item import *
 
 
 class Test_Authbutton:
-    def setup_class(self):
-        # admin_login(username, password)
+    def test_auth_login(self):
         login_authbutton()
-
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增权限按钮
     def test_add_auth(self):
@@ -54,8 +50,5 @@ class Test_Authbutton:
         auth_delete()
         time.sleep(2)
         assert new_page_source(addcodedata) == False
+        new_click(authmg)
 
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_authbuttoncase.py'])

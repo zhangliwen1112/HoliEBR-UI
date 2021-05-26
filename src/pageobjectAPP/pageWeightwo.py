@@ -13,7 +13,7 @@ from src.public.common.elements import *
 # 进入称量工单页面
 def login_weightwo():
     new_click(weightmanage)
-    new_click(weightwo)
+    new_click(weigh_wo)
     print('进入称量工单页面')
 
 
@@ -50,8 +50,8 @@ def weight_wo_net(n, tarevalue, selectmode='结束称量', isover='是'):
     new_click(verify)
     sleep(3)
     new_click(verify)
-    sleep(2)
-    if new_page_source('称量量已超出容器剩余量，确定要继续吗？'):
+    sleep(1)
+    if is_text_present('称量量已超出容器剩余量，确定要继续吗？'):
         new_click(yes_button)
         sleep(1)
     if selectmode == '结束称量':
@@ -60,12 +60,13 @@ def weight_wo_net(n, tarevalue, selectmode='结束称量', isover='是'):
         new_click(SamContainer)
     else:
         new_click(CanWeigh)
-    sleep(1)
-    if new_page_source('是否结束容器？'):
+    sleep(2)
+    if is_text_present('是否结束容器？'):
         if isover == '是':
             new_click(over_button)
         else:
             new_click(nover_button)
+    sleep(2)
 
 # 人工输入称量模式
 def weight_wo_manual(n, netvalue, tarevalue):
@@ -143,6 +144,7 @@ def weight_wo_count(n, tarevalue, isover='是'):
             new_click(over_button)
         else:
             new_click(nover_button)
+    sleep(2)
 
 # 批次信息
 def weight_wo_lot_detail(n):
@@ -201,10 +203,131 @@ def weight_wo_cancel(n,cancelweight1='否',cancelweight2='否'):
         if cancelweight2 == '取消称量':
             new_click(cancel_weight)
 
-# 输入容器ID
+
 def weight_wo_container_ID(ID):
-    new_type_double(containerID,ID)
+    new_type(containerID,ID)
     new_click(material_msg)
+
+
+# 强制称量
+def forceweigh():
+    new_click(weighlist)
+    new_click(waitweigh)
+    new_click(force_weigh)
+    ele = new_find_elements(yes)
+    new_click_ele(ele[1])
+
+# 毛重模式称量
+def grossweighmode(taredata):
+    sleep(2)
+    new_click(gross_wo)
+    new_click(weight_mode)
+    new_click(gross_mode)
+    new_click(container_list)
+    new_click(gross_container)
+    new_click(yes)
+    new_click(verify)
+    sleep(2)
+    new_click(yes)
+    new_click(yes)
+    sleep(2)
+    new_type_double(tare, taredata)
+    sleep(1)
+    new_click(verify)
+    sleep(1)
+    new_click(verify)
+    sleep(2)
+    new_click(weighFin)
+    sleep(3)
+    new_click(no)
+
+# 毛重模式称量，异常场景
+def grossweighmode_abnormal(taredata):
+    sleep(2)
+    new_click(gross_wo)
+    new_click(weight_mode)
+    new_click(gross_mode)
+    new_click(container_list)
+    new_click(gross_container)
+    new_click(yes)
+    new_click(verify)
+    sleep(2)
+    new_click(yes)
+    new_click(yes)
+    sleep(2)
+    new_type_double(tare, taredata)
+
+# 毛重模式称量，截至至“结束称量”前
+def grossweighmode2(taredata):
+    sleep(2)
+    new_click(gross_wo)
+    new_click(weight_mode)
+    new_click(gross_mode)
+    new_click(container_list)
+    new_click(gross_container)
+    new_click(yes)
+    new_click(verify)
+    sleep(2)
+    new_click(yes)
+    new_click(yes)
+    sleep(2)
+    new_type_double(tare, taredata)
+    sleep(1)
+    new_click(verify)
+    sleep(1)
+    new_click(verify)
+    sleep(2)
+
+# rm模式称量
+def rmweighmode(taredata):
+    sleep(2)
+    new_click(rmmix_wo)
+    new_click(weight_mode)
+    new_click(rmmix_mode)
+    new_click(container_list)
+    new_click(rmmix_container)
+    new_click(yes)
+    new_click(verify)
+    sleep(2)
+    new_click(yes)
+    sleep(2)
+    new_type_double(tare, taredata)
+    sleep(1)
+    new_click(verify)
+    sleep(1)
+    new_click(verify)
+    sleep(2)
+    new_click(weighFin)
+    sleep(3)
+    new_click(no)
+
+# rm模式称量
+def rmweighmode_abnormal(taredata):
+    sleep(2)
+    new_click(rmmix_wo)
+    new_click(weight_mode)
+    new_click(rmmix_mode)
+    new_click(container_list)
+    new_click(rmmix_container)
+    new_click(yes)
+    new_click(verify)
+    sleep(2)
+    new_click(yes)
+    sleep(2)
+    new_type_double(tare, taredata)
+
+# 物料信息
+def material_info():
+    sleep(2)
+    new_click(mate_info)
+
+# 托盘标签
+def pallet_label():
+    sleep(2)
+    new_click(container_list)
+    new_click(gross_container)
+    new_click(yes)
+    new_click(palletlabel)
 
 # 净重称量-获取净重值
 def weight_wo_net_netvalue(n, tarevalue):
@@ -244,4 +367,3 @@ def weight_wo_net_netvalue(n, tarevalue):
     print(net_value)
     tare_value = new_js_text(tare_number)
     print(tare_value)
-

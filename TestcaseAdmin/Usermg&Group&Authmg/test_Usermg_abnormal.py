@@ -17,14 +17,8 @@ from src.public.common.Search_Item import *
 
 
 class Test_Usermg:
-    def setup_class(self):
-        # admin_login(username, password)
-        # login_organize_manage()
-        # organize_user_add("lian", "lian", '18688888888', '在职', '女')
+    def test_usermg_login(self):
         login_usermg()
-
-    # def teardown_class(self):
-    #     admin_logout()
 
     # 新增用户_用户名 长度超过20、长度小于4、不是以字母开头、含大写字母、含特殊字符
     @pytest.mark.parametrize('usernameerror', [' ', 'abcdeabcdeabcdeabcde1', 'abc', '!fjldskjf', 'ABC123', 'abc#@123'])
@@ -100,11 +94,4 @@ class Test_Usermg:
         time.sleep(1)
         ele = new_find_elements(cancel_button)
         new_click_ele(ele[2])
-
-
-
-
-
-if __name__ == '__main__':
-    pytest.main(['-s', 'test_usermg_abnormal.py'])
 

@@ -8,7 +8,6 @@ search_value = '取样'
 
 edit_text1 = '必填'
 edit_text2 = '影响验证'
-edit_text3 = '不来自ERP'
 
 # 物料默认字段设置
 desc_text = 'testdescmaterials'

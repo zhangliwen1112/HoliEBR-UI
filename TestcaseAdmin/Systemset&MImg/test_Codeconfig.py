@@ -16,12 +16,9 @@ from src.public.common.Search_Item import *
 
 
 class Test_Codeconfig:
-    def setup_class(self):
-        admin_login(username, password)
-        login_codeconfig()
 
-    # def teardown_class(self):
-    #     admin_logout()
+    def test_codeconfig(self):
+        login_codeconfig()
 
     # 新增编码配置
     def test_add_codeconfig(self):
@@ -62,4 +59,5 @@ class Test_Codeconfig:
         codeconfig_delete()
         time.sleep(2)
         assert new_page_source(addcodedata) == False
+        new_click(syset)
 

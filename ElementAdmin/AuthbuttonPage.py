@@ -24,6 +24,8 @@ name = '//input[@placeholder="请输入名称"]'
 ramark = '//input[@placeholder="请输入备注"]'
 i18n = '//input[@placeholder="请输入国际化键"]'
 yes_button = '//div[@class="ivu-modal-footer"]//span[text()="确定"]'
+cancel_button = '//span[contains(text(),"取消")]'
+tabel_code = '//div[@role="presentation"]//span[text()="编码"]'  # 表头的编码列
 
 # 删除权限按钮中的删除按钮
 delete_yes_button = '//div[@class="ivu-poptip-footer"]//span[text()="确定"]'

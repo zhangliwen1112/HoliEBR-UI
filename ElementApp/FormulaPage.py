@@ -55,7 +55,8 @@ add_cancle = "//button[contains(.,'取消')]"
 # 筛选,第一个过滤条件
 select = "//span[contains(.,'筛选')]"
 select_name = "//div[3]/div[3]/div[2]/div[2]/div[2]/div/div[1]/span[3]"
-name_text = "//body/div/div[1]/main/div/div/div/div/div[2]/div[1]/div[1]/div/div[2]/div[1]/div/div/div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div/input"
+name_text = "//body/div/div[1]/main/div/div/div/div/div[2]/div[1]/div[1]/div/div[2]/div[1]/div/div/" \
+            "div[2]/div[3]/div[3]/div[2]/div[2]/div[2]/div/div[3]/div/div[2]/div/div/div/div[2]/div/div/input"
 # 选中第一条
 first = "//div[@role=\"row\" and @row-index=\"0\"]"
 
@@ -87,6 +88,3 @@ material_yes = "//div[3]/div/div/div[3]/button[2]/span"
 # 提交、批准处方
 yes_button = "//div[@class='DialogActions']//span[contains(.,'确定')]"
 cancle_button = "//div[@class='DialogActions']//span[contains(.,'取消')]"
-
-# 关闭当前页面
-close_tab = "//div[@aria-selected='true']//i[@title='删除']"

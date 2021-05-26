@@ -1,0 +1,5 @@
+[2021-05-22 09:26:51,645] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_mimanage_add
+[2021-05-22 09:26:54,804] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_mimanage_search
+[2021-05-22 09:26:58,419] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_mimanage_import
+[2021-05-22 09:27:16,397] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_mimanage_approve
+[2021-05-22 09:27:20,951] - Logger.py[line:45] - fuc:__console- INFO: 开始执行用例test_mimanage_publish

@@ -12,36 +12,34 @@ from src.public.common.Search_Item import search_item
 
 
 class Test_Material_Set:
-    def setup_class(self):
-        app_login(username, password)
+    def test_Material_Set_login(self):
         login_Material_Set()
-
-    def teardown_class(self):
-        Close_current_tab()
-        app_logout()
-
-    # 按物料名称筛选
-    def test_Material_Set_001(self):
-        log.info("按物料名称筛选%s" % sys._getframe().f_code.co_name)
+        sleep(1)
+        assert new_page_source('物料字段设置')
         search_item('字段显示名称', '系列')
         sleep(1)
+
 
     # 编辑物料字段---修改字段为必填，存在为空的物料数据
     def test_Material_Set_abnormal(self):
         log.info("编辑物料字段%s" % sys._getframe().f_code.co_name)
         Material_Set_edit(edit_text1)
+        assert  new_page_source('该字段存在内容为“空”的物料数据')
+        sleep(0.5)
 
     # 设置物料字段默认值--称量间误差异常数值
     @pytest.mark.parametrize('desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule',weight_error_abnormal_list)
     def test_Material_Set_weight_abnormal(self,desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule):
         log.info("设置物料字段默认值%s" % sys._getframe().f_code.co_name)
         Material_Set_default(desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule)
+        sleep(0.5)
 
     # 设置物料字段默认值--有效期异常数值
     @pytest.mark.parametrize('desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule',material_validity_abnormal_list)
     def test_Material_Set_validity_abnormal(self,desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule):
         log.info("设置物料字段默认值%s" % sys._getframe().f_code.co_name)
         Material_Set_default(desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule)
+        sleep(0.5)
 
 
     # 设置物料字段默认值--有效期预警异常数值
@@ -49,10 +47,13 @@ class Test_Material_Set:
     def test_Material_Set_alarm_abnormal(self,desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule):
         log.info("设置物料字段默认值%s" % sys._getframe().f_code.co_name)
         Material_Set_default(desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule)
+        sleep(0.5)
 
     # 设置物料字段默认值--取样量异常数据
     @pytest.mark.parametrize('desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule',qty_abnormal_list)
     def test_Material_Set_qty_abnormal(self,desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule):
         log.info("设置物料字段默认值%s" % sys._getframe().f_code.co_name)
         Material_Set_default(desc,type,unit,potency,error,validity,va_unit,alarm,qty,rule)
+        sleep(0.5)
+        Close_current_tab()
 

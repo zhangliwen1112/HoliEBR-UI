@@ -20,7 +20,6 @@ def Area_Manage_add(area_code, area_name):
     new_type(Code, area_code)
     new_type(Name, area_name)
     new_click(submit)
-    new_click(fresh)
     print('区域新增成功！')
     sleep(2)
 
@@ -31,11 +30,11 @@ def Area_Manage_edit(area_name):
     new_click(edit)
     new_type(Name, area_name)
     new_click(submit)
-    time.sleep(2)
+    sleep(2)
 
 
 # 删除区域
 def Area_Manage_delete():
     new_click(delete)
     new_click(delete_submit)
-    time.sleep(2)
+    sleep(2)

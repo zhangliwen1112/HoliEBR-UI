@@ -28,3 +28,4 @@ admingp = '//span[text()="管理员组"]'
 usergp = '//span[text()="普通用户组"]'
 
 yes_button = '//span[text()="确定"]'
+cancel_button = '//div[@class="ivu-modal-content"]//span[contains(text(),"取消")]'
